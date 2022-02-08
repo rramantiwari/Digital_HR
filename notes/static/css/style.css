@@ -1,0 +1,617 @@
+:root {
+    --gradient: linear-gradient(90deg, #969490, #969490);
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+*::selection {
+    background: #a09d98;
+    color: rgb(252, 241, 241);
+    opacity: 0.5;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #333;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: linear-gradient(#555252, #4e4d4c);
+}
+
+section {
+    min-height: 100vh;
+    padding: 1rem 7%;
+    padding-top: 6rem;
+}
+
+.btn {
+    padding: .7rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: -100%;
+    background: #fff9;
+    height: 150%;
+    width: 20%;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transition: .3s linear;
+    left: 120%;
+}
+
+.heading {
+    color: #444;
+    padding: 1rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1.5rem 7%;
+    background: var(--gradient);
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+}
+
+header .logo {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+header .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+header .navbar ul li {
+    margin: 0 1rem;
+}
+
+header .navbar ul li a {
+    font-size: 2rem;
+    color: #fff;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+    color: #444;
+}
+
+header #login {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+header #login:hover {
+    color: #444;
+}
+
+header #menu {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.userlog {
+    background: #111;
+}
+
+.userlog .heading {
+    color: #fff;
+}
+
+.userlog .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.userlog .row form {
+    flex: 1 1 50rem;
+    background: #222;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+.userlog .row form .box {
+    height: 5rem;
+    width: 90%;
+    border: .1rem solid #eee;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: #fff;
+    background: none;
+    text-transform: none;
+}
+
+.userlog .row form .box:focus {
+    border-color: #f39c12;
+}
+
+.userlog .row form .box::placeholder {
+    text-transform: capitalize;
+}
+
+.userlog .row form .address {
+    height: 15rem;
+    padding: 1rem;
+    resize: none;
+    width: 100%;
+}
+
+.userlog .row form .btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+.userlog .row .image img {
+    height: 60vh;
+    margin-top: 1rem;
+}
+
+.userlog form p {
+    font-size: 1.4rem;
+    color: #666;
+    padding: .5rem 0;
+}
+
+.userlog form p a {
+    color: #666460;
+}
+
+.userlog form .btn {
+    width: 20%;
+    margin: 2rem 0;
+}
+
+.login-form form .fa-times {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.login-form form .fa-times:hover {
+    color: #444;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background: url(/static/images/note1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 6rem;
+    color: #666;
+}
+
+.home p {
+    font-size: 1.9rem;
+    color: #999;
+    padding: 1rem 0;
+    width: 70rem;
+}
+
+.home .shape {
+    position: absolute;
+    bottom: -.2rem;
+    left: 0;
+    height: 15rem;
+    width: 100%;
+    background: url(../images/shape.png);
+    block-size: 100rem 15rem;
+    filter: drop-shadow(0 -.1rem .1rem rgba(0, 0, 0, .2));
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0rem;
+    }
+    100% {
+        background-position-x: 100rem;
+    }
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .image {
+    flex: 1 1 40rem;
+}
+
+.about .image img {
+    height: 65vh;
+    width: 100%;
+}
+
+.about .content {
+    flex: 1 1 40rem;
+}
+
+.about .content h3 {
+    font-size: 3.5rem;
+    color: #666;
+}
+
+.about .content p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.signup {
+    background: #111;
+}
+
+.signup .heading {
+    color: #fff;
+}
+
+.signup .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.signup .row form {
+    flex: 1 1 50rem;
+    background: #222;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+.signup .row form .box {
+    height: 5rem;
+    width: 49%;
+    border: .1rem solid #eee;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: #fff;
+    background: none;
+    text-transform: none;
+}
+
+.signup .row form .box:focus {
+    border-color: #777674;
+}
+
+.signup .row form .box::placeholder {
+    text-transform: capitalize;
+}
+
+.signup .row form .address {
+    height: 15rem;
+    padding: 1rem;
+    resize: none;
+    width: 100%;
+}
+
+.signup .row form .btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+.signup .row .image img {
+    height: 70vh;
+    margin-top: 2rem;
+}
+
+.contact {
+    background: #111;
+}
+
+.contact .heading {
+    color: #fff;
+}
+
+.contact .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact .row form {
+    flex: 1 1 50rem;
+    background: #222;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+.contact .row form .box {
+    height: 5rem;
+    width: 49%;
+    border: .1rem solid #eee;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: #fff;
+    background: none;
+    text-transform: none;
+}
+
+.contact .row form .box:focus {
+    border-color: #f39c12;
+}
+
+.contact .row form .box::placeholder {
+    text-transform: capitalize;
+}
+
+.contact .row form .address {
+    height: 15rem;
+    padding: 1rem;
+    resize: none;
+    width: 100%;
+}
+
+.contact .row form .btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+.contact .row .image img {
+    height: 70vh;
+    margin-top: 2rem;
+}
+
+.adminlog {
+    background: #111;
+}
+
+.adminlog .heading {
+    color: #fff;
+}
+
+.adminlog .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.adminlog .row form {
+    flex: 1 1 50rem;
+    background: #222;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+.adminlog .row form .box {
+    height: 5rem;
+    width: 90%;
+    border: .1rem solid #eee;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: #fff;
+    background: none;
+    text-transform: none;
+}
+
+.adminlog .row form .box:focus {
+    border-color: #f39c12;
+}
+
+.adminlog .row form .box::placeholder {
+    text-transform: capitalize;
+}
+
+.adminlog .row form .address {
+    height: 15rem;
+    padding: 1rem;
+    resize: none;
+    width: 100%;
+}
+
+.adminlog .row form .btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+.adminlog .row .image img {
+    height: 60vh;
+    margin-top: 0.5rem;
+}
+
+.footer {
+    background: #333;
+}
+
+.footer .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box {
+    margin: 1.5rem;
+    text-align: center;
+    flex: 1 1 25rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box p {
+    font-size: 1.7rem;
+    color: #eee;
+    padding: .7rem 0;
+}
+
+.footer .box-container .box p i {
+    padding-right: .5rem;
+    color: #f39c12;
+}
+
+.footer .box-container .box a {
+    font-size: 1.8rem;
+    display: block;
+    padding: .5rem 0;
+    color: #eee;
+}
+
+.footer .box-container .box a:hover {
+    text-decoration: underline;
+}
+
+.footer .credit {
+    padding: 2rem 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: #111;
+    text-align: center;
+    font-weight: normal;
+    padding-bottom: 9rem;
+}
+
+.footer .credit a {
+    color: #f39c12
+}
+
+
+/* media queries  */
+
+@media (max-width:768px) {
+    html {
+        font-size: 55%;
+    }
+    header #menu {
+        display: block;
+    }
+    header .navbar {
+        position: fixed;
+        top: -120%;
+        left: 0;
+        width: 100%;
+        background: #444;
+    }
+    header .navbar ul {
+        flex-flow: column;
+        padding: 2rem 0;
+    }
+    header .navbar ul li {
+        margin: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+    }
+    header .navbar ul li a {
+        font-size: 2.5rem;
+        display: block;
+    }
+    header .navbar ul li a.active,
+    header .navbar ul li a:hover {
+        color: #f39c12;
+    }
+    .fa-times {
+        transform: rotate(180deg);
+    }
+    header .navbar.nav-toggle {
+        top: 6.4rem;
+    }
+    .home h1 {
+        font-size: 4rem;
+    }
+    .home p {
+        width: auto;
+    }
+    .teacher p {
+        width: auto;
+    }
+    .contact .row .image {
+        display: none;
+    }
+}
+
+@media (max-width:500px) {
+    html {
+        font-size: 50%;
+    }
+    .contact .row form .box {
+        width: 100%;
+    }
+}

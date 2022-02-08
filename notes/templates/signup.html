@@ -1,0 +1,64 @@
+{% extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+{% if error == "no" %}
+     <script>
+	   alert('Signup Successfull');
+	   window.location=('{% url 'login' %}');
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
+<br><br><br><br>
+<section class="signup" id="signup">
+<h1 class="heading">Signup Form</h1>
+<div class="row">
+					<form method="post">
+							{% csrf_token %}
+
+									<input type="text" placeholder="Enter First Name" class="box" name="firstname" required>
+
+
+							        <input type="text" placeholder="Enter Last Name" class="box" name="lastname" required>
+
+
+									<input type="num" placeholder="Enter Contact Number" class="box" maxlength="10" id= "phone"name="contact" required>
+
+
+									<input type="email" placeholder="Enter Email Address" class="box" name="emailid" required>
+
+
+									<input type="password" placeholder="Password" class="box" name="password" required>
+						              <select name="branch" class="box" style="background-color : black">
+                                      <option value="">--- Select Branch ---</option>
+									  <option value="Computer Science">Computer Science</option>
+									  <option value="Mechanical">Mechanical</option>
+									  <option value="Civil">Civil</option>
+									  <option value="Electronics">Electronics</option>
+									  <option value="Electric">Electric</option>
+									  <option value="IT">IT</option>
+									</select>
+
+
+									<select name="role" class="box" style="background-color : black">
+                                        <option value="">--- Role ---</option>
+										<option value="Student">Student</option>
+										<option value="Teacher">Teacher</option>
+										<option value="Teacher">HR Manager</option>
+									</select>
+								<hr>
+								<input type="submit" class="btn btn-primary mt-2" value="SUBMIT">
+                            </form>
+                       <div class="image">
+                          <img src="{% static 'images/Taking notes-amico.png' %}" alt="">
+                       </div>
+				</div>
+
+</section>
+
+{% endblock %}

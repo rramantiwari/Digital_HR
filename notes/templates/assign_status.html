@@ -1,0 +1,74 @@
+{% load static %}
+
+{% if  error == "no" %}
+<script>
+	alert('Status Updated Successfully');
+	window.location=('{% url 'all_notes' %}');
+</script>
+{% endif  %}
+
+{% if  error == "yes" %}
+<script>
+	alert('Invalid Login Credentials, Try Again');
+</script>
+{% endif  %}
+<html lang="en" class="no-focus"> <!--<![endif]-->
+    <head>
+        <title>DIGITAL OFFICE</title>
+
+        <link rel="stylesheet" href="{% static 'js/plugins/datatables/dataTables.bootstrap4.min.css' %}">
+
+        <link rel="stylesheet" id="css-main" href="{% static 'css1/codebase.min.css' %}">
+    </head>
+    <body>
+        <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
+
+         {% include "sidebar.html" %}
+
+            {% include "admin_nav.html" %}
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <div class="container my-5">
+    <h2 class="text-center">Assign Status</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <label>user ID</label>
+        <input type="text" name="noteid" class="form-control" value="{{notes.id}}" readonly>
+
+        <label>Status</label>
+        <select name="status" class="form-control">
+            <option value="Accept">Accept</option>
+            <option value="Reject">Reject</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+
+</div>
+            </main>
+            <!-- END Main Container -->
+
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Codebase Core JS -->
+         <script src="{% static 'js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/popper.min.js' %}"></script>
+        <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'js/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'js/codebase.js' %}"></script>
+
+        <!-- Page JS Plugins -->
+        <script src="{% static 'js/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'js/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+        <!-- Page JS Code -->
+        <script src="{% static 'js/pages/be_tables_datatables.js' %}"></script>
+    </body>
+</html>

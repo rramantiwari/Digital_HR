@@ -1,0 +1,39 @@
+{% extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+{% if  error == "no" %}
+     <script>
+	   alert('Your Message has been Send Successfully');
+	   window.location=('{% url 'contact' %}');
+     </script>
+{% endif  %}
+
+{% if  error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif  %}
+<br><br><br><br>
+<section class="contact" id="contact">
+<h1 class="heading mt-5">contact us</h1>
+
+<div class="row">
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="full name" name="fullname" class="box">
+        <input type="email" placeholder="your email" name="email" class="box">
+        <input type="number" placeholder="your contact number" name="mobile" class="box">
+        <input type="text" placeholder="Subject" name="subject" class="box">
+        <textarea name="message" id="" cols="30" rows="8" class="box address" placeholder="Send Message..."></textarea>
+        <input type="submit" class="btn" value="send now">
+    </form>
+
+    <div class="image">
+        <img src="{% static 'images/Learning-pana.png' %}" alt="">
+    </div>
+
+</div>
+</section>
+{% endblock %}

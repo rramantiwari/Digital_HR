@@ -1,0 +1,146 @@
+{% load static %}
+{% block main %}
+ <html lang="en" class="no-focus"> <!--<![endif]-->
+ <head>
+ <title>DIGITAL OFFICE</title>
+ <link rel="stylesheet" id="css-main" href="{% static 'css1/codebase.min.css' %}">
+
+     <style>
+.container1 {
+	background-color: lightgrey;
+	border-radius: 8px;
+}
+
+h2, h4 {
+	padding: 10px;
+}
+
+.mydiv:hover {
+	transform: translateY(-10px)
+}
+
+.glow {
+	font-size: 80px;
+	color: #fff;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+  text-shadow :0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+	0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+	text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px
+		#ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+</style>
+    </head>
+    <body>
+        <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
+
+        {% include "sidebar.html" %}
+
+            {% include "admin_nav.html" %}
+
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row gutters-tiny invisible" data-toggle="appear">
+                        <!-- Row #1 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <a class="block text-center" href="{% url 'pending_notes' %}">
+                                <div class="block-content ribbon ribbon-bookmark ribbon-crystal ribbon-left bg-gd-dusk">
+
+
+                                    <div class="ribbon-box">{{pn}}</div>
+                                    <p class="mt-5">
+                                        <i class="fas fa-book-reader fa-3x text-white-op"></i>
+                                    </p>
+                                    <p class="font-w600 text-white">Pending complain</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <a class="block text-center" href="{% url 'accepted_notes' %}">
+                                <div class="block-content ribbon ribbon-bookmark ribbon-crystal ribbon-left bg-gd-dusk">
+
+
+                                    <div class="ribbon-box">{{an}}</div>
+                                    <p class="mt-5">
+                                        <i class="fas fa-book fa-3x text-white-op"></i>
+                                    </p>
+                                    <p class="font-w600 text-white">Accepted complain</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <a class="block text-center" href="{% url 'rejected_notes' %}">
+                                <div class="block-content ribbon ribbon-bookmark ribbon-crystal ribbon-left bg-gd-sea">
+
+
+                                    <div class="ribbon-box">{{rn}}</div>
+                                    <p class="mt-5">
+                                        <i class="fas fa-edit fa-3x text-white-op"></i>
+                                    </p>
+                                    <p class="font-w600 text-white">Rejected complain</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <a class="block text-center" href="{% url 'all_notes' %}">
+                                <div class="block-content ribbon ribbon-bookmark ribbon-crystal ribbon-left bg-gd-sea">
+
+
+                                    <div class="ribbon-box">{{alln}}</div>
+                                    <p class="mt-5">
+                                        <i class="fas fa-folder-open fa-3x text-white-op"></i>
+                                    </p>
+                                    <p class="font-w600 text-white">All complains</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- END Row #1 -->
+                    </div>
+                </div>
+<br><br><br><br><br>
+<footer class="container mt-5 text-center">
+		            
+			          
+			 
+				<a class="glow" href="#" target="_blank"></a></p>
+	       </footer>
+
+
+            </main>
+            <!-- END Main Container -->
+
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Codebase Core JS -->
+        <script src="{% static 'js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/popper.min.js' %}"></script>
+        <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'js/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'js/codebase.js' %}"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- Page JS Plugins -->
+        <script src="{% static 'js/plugins/chartjs/Chart.bundle.min.js' %}"></script>
+
+        <!-- Page JS Code -->
+        <script src="{% static 'js/pages/be_pages_dashboard.js' %}"></script>
+    </body>
+</html>
+{% endblock %}

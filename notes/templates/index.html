@@ -1,0 +1,93 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITAL OFFICE</title>
+
+    <!-- google fonts cdn link  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/fiv.png' %}" sizes="16x16 32x32" type="image/png"> 
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+    <div id="menu" class="fas fa-bars"></div>
+    <a href="{% url 'index' %}" class="logo"><i class="fas fa-book-reader"></i>DIGITAL OFFICE</a>
+
+    <nav class="navbar">
+        <ul>
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'signup' %}">User Signup</a></li>
+            <li><a href="{% url 'login' %}">User Login</a></li>
+            <li><a href="{% url 'login_admin' %}">Admin Login</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- header section ends -->
+
+<!-- home section starts  -->
+<section class="home" id="home">
+    <h1 style="background-color : #fff; color: #ff215b;">DIGITAL OFFICE</h1>
+    <div class="shape" >
+        <img   src="{% static 'images/aktu.jpg' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/bte.png' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/dte.png' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/iti.jpg' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/pdte.png' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/scvt.png' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/upsdm.jpg' %}" height="50" alt="Natural">
+        <img   src="{% static 'images/upvesd.png' %}" height="50" alt="Natural">
+    </div>
+</section>
+<!-- home section ends -->
+
+
+<!-- footer section starts  -->
+<div class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>branch locations</h3>
+            <a href="#">UNNAO</a>
+            <a href="#">KANPUR</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="{% url 'index' %}">home</a>
+            <a href="{% url 'about' %}">about</a>
+            <a href="{% url 'contact' %}">contact</a>
+       </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <p> <i class="fas fa-map-marker-alt"></i>Government Polytechnic Unnao </p>
+            <p> <i class="fas fa-envelope"></i> prideindia888.com </p>
+            <p> <i class="fas fa-phone"></i> +91 7028978987 </p>
+        </div>
+    </div>
+    <h1 class="credit">POWERED BY RR APPLICATION  ||  All Rights Reserved </h1>
+</div>
+<!-- footer section ends -->
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'usernavigation.html'%}
+{% load static %}
+{% block body %}
+<br><br><br>
+<div class="container card shadow mt-5">
+	<div class="card-body">
+           <h4 class="text-center text-danger">View All Work</h4>
+			<br>
+			<table id="example" class="table table-striped table-bordered" style="width:100%">
+				<thead style="background-color : #607d8b;">
+					<tr>
+						<th>S.No</th>
+						<th>Uploaded By</th>
+						<th>Uploading Date</th>
+						<th>Branch</th>
+						<th>Subject</th>
+						<th>Download Form</th>
+						<th>File Type</th>
+						<th>Description</th>
+						<th>Status</th>
+					</tr>
+					</thead>
+				{% for i in notes %}
+				<tbody>
+				<tr>
+                    <td>{{forloop.counter}}</td>
+					<td>{{i.user.username}}</td>
+					<td>{{i.uploadingdate}}</td>
+					<td>{{i.branch}}</td>
+					<td>{{i.subject}}</td>
+					<td><a href="{{i.notesfile.url}}" class="btn btn-success" download>Download</a></td>
+					<td>{{i.filetype}}</td>
+					<td>{{i.description}}</td>
+					<td>{{i.status}}</td>
+
+                </tr>
+				{% endfor %}
+				</tbody>
+			</table>
+    </div>
+</div>
+{% endblock %}

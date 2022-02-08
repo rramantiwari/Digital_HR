@@ -1,0 +1,41 @@
+{% extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+<section class="about" id="about">
+
+    <div class="image">
+        <img src="{% static 'images/Learning-amico.jpg' %}" alt="">
+    </div>
+
+    <div class="content">
+        <h3>All About DIGITAL HUMEN RESOURCE</h3>
+        <p> “PAPERLESS OFFICE”The purpose of the 
+                project<span id="dots">...</span><span id="more"> in organizational perspective is to generate a fully computerized human resource system.</span></p>
+
+<button onclick="myFunction()" id="myBtn">Read more</button>
+            <div style="text-align: center; margin: 40px 40px; font-size: 30px;padding:0px 10px; "{color:#a52a2a;} :hover { color:#3d3d3d; }"">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+
+
+</section><script>
+function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+  
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+    }
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  {% load static %}
+  <title>DIGITAL OFFICE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <!-- Data table CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    </script>
+</head>
+<body>
+ <nav class="navbar navbar-expand-sm justify-content-center" style = "background-color : lightgrey">
+     <a class="navbar-brand" href=""><span style="color:red"><b>Online</b></span><span style="color:green"> <b>Form</b> </span><span style="color:blue"><b>Sharing</b></span></a>
+  <ul class="navbar-nav">
+      <li class="navbar-item">
+          <a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-home"></i> HOME</a>
+      </li>
+
+      <li class="navbar-item">
+          <a class="nav-link" href="{% url 'upload_notes' %}"><i class="fas fa-cloud-upload-alt"></i> UPLOAD FORM</a>
+      </li>
+
+			<li class="navbar-item">
+                <a class="nav-link" href="{% url 'view_mynotes' %}"><i class="fas fa-eye"></i> VIEW MY FORM</a>
+            </li>
+
+			<li class="navbar-item">
+                <a class="nav-link" href="{% url 'viewallnotes' %}"><i class="fas fa-eye"></i> VIEW ALL FORM</a>
+            </li>
+
+			<li class="navbar-item">
+                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-power-off"></i> LOGOUT</a>
+            </li>
+
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button"
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Welcome {{request.user.first_name}}</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="{% url 'profile' %}">PROFILE</a>
+                    <a class="dropdown-item" href="{% url 'edit_profile' %}">EDIT PROFILE</a>
+                    <a class="dropdown-item" href="{% url 'changepassword' %}">CHANGE PASSWORD</a>
+				</div>
+			</div>
+  </ul>
+ </nav>
+</body>
+</html>
+
+{% block body %}
+
+{% endblock %}

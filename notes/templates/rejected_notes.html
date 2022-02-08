@@ -1,0 +1,98 @@
+{% load static %}
+
+<html lang="en" class="no-focus"> <!--<![endif]-->
+    <head>
+        <title>DIGITAL OFFICE- Reject Forms</title>
+
+        <link rel="stylesheet" href="{% static 'js/plugins/datatables/dataTables.bootstrap4.min.css' %}">
+
+        <link rel="stylesheet" id="css-main" href="{% static 'css1/codebase.min.css' %}">
+
+    </head>
+    <body>
+
+        <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
+
+         {% include "sidebar.html" %}
+
+            {% include "admin_nav.html" %}
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+                    <h2 class="content-heading text-danger">View Rejected Form</h2>
+
+
+
+                    <!-- Dynamic Table Full Pagination -->
+                    <div class="block">
+
+                        <div class="block-content block-content-full">
+                            <!-- DataTables init on table by adding .js-dataTable-full-pagination class, functionality initialized in js/pages/be_tables_datatables.js -->
+                            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+                                <thead class="text-white" style="background-color : #5d4037;">
+                                    <tr>
+                                        <th class="text-center">S.No</th>
+                                        <th class="d-none d-sm-table-cell">Uploaded By</th>
+                                        <th class="d-none d-sm-table-cell">Uploading Date</th>
+                                        <th class="d-none d-sm-table-cell">Branch</th>
+                                        <th class="d-none d-sm-table-cell">Subject</th>
+                                        <th class="d-none d-sm-table-cell">Download Form</th>
+                                        <th class="d-none d-sm-table-cell">File Type</th>
+                                        <th class="d-none d-sm-table-cell">Description</th>
+                                        <th class="d-none d-sm-table-cell">Status</th>
+                                        <th class="d-none d-sm-table-cell">Assign Status</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
+                                    </tr>
+                                </thead>
+                                {% for i in notes %}
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">{{forloop.counter}}</td>
+                                        <td class="font-w600">{{i.user.username}}</td>
+					<td class="font-w600">{{i.uploadingdate}}</td>
+					<td class="font-w600">{{i.branch}}</td>
+					<td class="font-w600">{{i.subject}}</td>
+					<td class="font-w600"><a href="{{i.notesfile.url}}" class="btn btn-success" download>Download</a></td>
+					<td class="font-w600">{{i.filetype}}</td>
+					<td class="font-w600">{{i.description}}</td>
+					<td class="font-w600">{{i.status}}</td>
+					<td class="font-w600"><a href="{% url 'assign_status' i.id %}" class="btn btn-success">Assign&nbsp;Status</a></td>
+					<td class="font-w600"><a href="{% url 'delete_notes' i.id %}" class="btn btn-danger" onclick="return confirm('Are your sure to Delete ?')">Delete</a></td>
+                                    </tr>
+                                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Full Pagination -->
+
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Codebase Core JS -->
+         <script src="{% static 'js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/popper.min.js' %}"></script>
+        <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'js/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'js/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'js/codebase.js' %}"></script>
+
+        <!-- Page JS Plugins -->
+        <script src="{% static 'js/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'js/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- Page JS Code -->
+        <script src="{% static 'js/pages/be_tables_datatables.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+{% extends 'usernavigation.html'%}
+{% load static %}
+{% block body %}
+<br><br><br><br><br>
+<div class="container card shadow mt-5">
+    <div class="card-body">
+
+     <h2 class="text-center text-danger">PROFILE</h2>
+     <hr>
+     <DIV class="row">
+       <div class="col-md-6">
+         <b>Full Name : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+           {{data.user.first_name}} {{data.user.last_name}}
+       </div>
+     </DIV>
+     <hr>
+
+     <DIV class="row">
+       <div class="col-md-6">
+         <b>Email ID : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+              {{data.user.username}}
+       </div>
+     </DIV>
+     <hr>
+
+     <DIV class="row">
+       <div class="col-md-6">
+          <b>Contact : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+               {{data.contact}}
+       </div>
+     </DIV>
+     <hr>
+
+     <DIV class="row">
+       <div class="col-md-6">
+          <b>Branch : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+               {{data.branch}}
+       </div>
+     </DIV>
+     <hr>
+     <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">Edit Profile</a>
+   </div>
+</div>
+<!-- Codebase Core JS -->
+	<script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/jquery.scrollLock.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/jquery.appear.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/jquery.countTo.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/js.cookie.min.js' %}"></script>
+	<script src="{% static 'assets/js/codebase.js' %}"></script>
+
+	<!-- Page JS Plugins -->
+	<script src="{% static 'assets/js/plugins/chartjs/Chart.bundle.min.js' %}"></script>
+
+	<!-- Page JS Code -->
+	<script src="{% static 'assets/js/pages/be_pages_dashboard.js' %}"></script>
+
+{% endblock %}
